@@ -20,6 +20,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-eat
+
       - name: Nothing
         run: echo "Nothing to do here"
