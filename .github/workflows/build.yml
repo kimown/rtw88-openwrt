@@ -53,5 +53,8 @@ jobs:
           git clone https://github.com/kimown/rtw88-openwrt.git package/kernel/rtw88/rtw88-openwrt
           make package/kernel/rtw88/rtw88-openwrt/compile -j1 V=s
 
-
+      - uses: actions/upload-artifact@v4
+        with:
+          name: my-artifact
+          path: openwrt-sdk-24.10.0-x86-64_gcc-13.3.0_musl.Linux-x86_64/bin
     
