@@ -28,13 +28,16 @@ jobs:
         run: |
           sudo apt update
           sudo apt install -y build-essential clang flex bison g++ gawk gcc-multilib g++-multilib gettext git libncurses5-dev libssl-dev python3-setuptools rsync swig unzip zlib1g-dev file wget curl
+      
+      - name: Download Sdk
+        run: |
+          wget https://archive.openwrt.org/releases/24.10.0/targets/x86/64/openwrt-sdk-24.10.0-x86-64_gcc-13.3.0_musl.Linux-x86_64.tar.zst
 
       - name: Build IPK
         run: |
           echo "build ipk"
-          wget https://archive.openwrt.org/releases/24.10.0/targets/x86/64/openwrt-imagebuilder-24.10.0-x86-64.Linux-x86_64.tar.zst
-          tar --use-compress-program=unzstd -xvf openwrt-imagebuilder-24.10.0-x86-64.Linux-x86_64.tar.zst
-          cd openwrt-imagebuilder-24.10.0-x86-64.Linux-x86_64/
+          tar --use-compress-program=unzstd -xvf openwrt-sdk-24.10.0-x86-64_gcc-13.3.0_musl.Linux-x86_64.tar.zst
+          cd openwrt-sdk-24.10.0-x86-64_gcc-13.3.0_musl.Linux-x86_64/
           ls
           sudo chmod 777 feeds.conf.default
           ./scripts/feeds update -a 
