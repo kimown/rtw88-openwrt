@@ -30,6 +30,7 @@ RTW_AUTOLOAD := rtw_8821cu \
 		rtw_8822bu \
 		rtw_8822cu \
 		rtw_8812au \
+		rtw_8814au \
 		rtw_8821au \
 		rtw_8723du
 
@@ -48,6 +49,8 @@ define KernelPackage/rtw88-backports-usb
 	$(PKG_BUILD_DIR)/rtw_8821c.ko \
 	$(PKG_BUILD_DIR)/rtw_8821cu.ko \
 	$(PKG_BUILD_DIR)/rtw_8821a.ko \
+	$(PKG_BUILD_DIR)/rtw_8814a.ko \
+	$(PKG_BUILD_DIR)/rtw_8814au.ko \
 	$(PKG_BUILD_DIR)/rtw_8821au.ko \
 	$(PKG_BUILD_DIR)/rtw_8812a.ko \
 	$(PKG_BUILD_DIR)/rtw_8812au.ko \
