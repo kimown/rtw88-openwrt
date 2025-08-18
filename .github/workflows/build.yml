@@ -36,3 +36,16 @@ jobs:
           tar --use-compress-program=unzstd -xvf openwrt-imagebuilder-24.10.0-x86-64.Linux-x86_64.tar.zst
           cd openwrt-imagebuilder-24.10.0-x86-64.Linux-x86_64/
           ls
+          ./scripts/feeds update -a 
+          ./scripts/feeds install -a
+          make defconfig
+          ls -lh .config
+
+      - name: Build IPK
+        run: |
+          mkdir -p package/kernel/rtw88/
+          git clone https://github.com/kimown/rtw88-openwrt.git package/kernel/rtw88/rtw88-openwrt
+          make package/kernel/rtw88/rtw88-openwrt/compile -j1 V=s
+
+
+    
