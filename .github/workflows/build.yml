@@ -36,6 +36,7 @@ jobs:
           tar --use-compress-program=unzstd -xvf openwrt-imagebuilder-24.10.0-x86-64.Linux-x86_64.tar.zst
           cd openwrt-imagebuilder-24.10.0-x86-64.Linux-x86_64/
           ls
+          sudo chmod 777 feeds.conf.default
           ./scripts/feeds update -a 
           ./scripts/feeds install -a
           curl -o .config https://downloads.openwrt.org/releases/24.10.0/targets/x86/64/config.buildinfo
