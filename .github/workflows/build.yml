@@ -31,23 +31,23 @@ jobs:
       
       - name: Download Sdk
         run: |
-          wget https://archive.openwrt.org/releases/24.10.0/targets/x86/64/openwrt-sdk-24.10.0-x86-64_gcc-13.3.0_musl.Linux-x86_64.tar.zst
-          tar --use-compress-program=unzstd -xvf openwrt-sdk-24.10.0-x86-64_gcc-13.3.0_musl.Linux-x86_64.tar.zst
+          wget https://downloads.openwrt.org/releases/24.10.2/targets/x86/64/openwrt-sdk-24.10.2-x86-64_gcc-13.3.0_musl.Linux-x86_64.tar.zst
+          tar --use-compress-program=unzstd -xvf openwrt-sdk-24.10.2-x86-64_gcc-13.3.0_musl.Linux-x86_64.tar.zst
 
       - name: Build IPK
         run: |
           echo "build ipk"
-          cd openwrt-sdk-24.10.0-x86-64_gcc-13.3.0_musl.Linux-x86_64/
+          cd openwrt-sdk-24.10.2-x86-64_gcc-13.3.0_musl.Linux-x86_64/
           ./scripts/feeds update -a 
           ./scripts/feeds install -a
-          curl -o .config https://downloads.openwrt.org/releases/24.10.0/targets/x86/64/config.buildinfo
+          curl -o .config https://downloads.openwrt.org/releases/24.10.2/targets/x86/64/config.buildinfo
           ls -lh .config
           make defconfig
           ls -lh .config
 
       - name: Build IPK
         run: |
-          cd openwrt-sdk-24.10.0-x86-64_gcc-13.3.0_musl.Linux-x86_64/
+          cd openwrt-sdk-24.10.2-x86-64_gcc-13.3.0_musl.Linux-x86_64/
           ls
           mkdir -p package/kernel/rtw88/
           git clone -b mybranch https://github.com/kimown/rtw88-openwrt.git package/kernel/rtw88/rtw88-openwrt
@@ -56,5 +56,5 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: my-artifact
-          path: openwrt-sdk-24.10.0-x86-64_gcc-13.3.0_musl.Linux-x86_64/bin
+          path: openwrt-sdk-24.10.2-x86-64_gcc-13.3.0_musl.Linux-x86_64/bin
     
