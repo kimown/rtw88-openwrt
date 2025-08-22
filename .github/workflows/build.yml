@@ -56,5 +56,12 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: my-artifact
-          path: openwrt-sdk-24.10.2-x86-64_gcc-13.3.0_musl.Linux-x86_64/bin
+          # path: openwrt-sdk-24.10.2-x86-64_gcc-13.3.0_musl.Linux-x86_64/bin
+          path: |
+            openwrt-sdk-24.10.2-x86-64_gcc-13.3.0_musl.Linux-x86_64/bin/packages/x86_64/base/rtw88-backports-firmware*
+            openwrt-sdk-24.10.2-x86-64_gcc-13.3.0_musl.Linux-x86_64/bin/targets/x86/64/packages/kmod-usb-core*
+            openwrt-sdk-24.10.2-x86-64_gcc-13.3.0_musl.Linux-x86_64/bin/targets/x86/64/packages/kmod-mac80211*
+            openwrt-sdk-24.10.2-x86-64_gcc-13.3.0_musl.Linux-x86_64/bin/targets/x86/64/packages/kmod-cfg80211*
+            openwrt-sdk-24.10.2-x86-64_gcc-13.3.0_musl.Linux-x86_64/bin/targets/x86/64/packages/kmod-rtw88-backports-usb*
+
     
